@@ -46,22 +46,22 @@ function authorizeRoles(...allowedRoles) {
 }
 
 // Public routes
-app.use('/register', proxy('http://localhost:5001'));
-app.use('/auth', proxy('http://localhost:5002'));
+app.use('/register', proxy('http://3.90.109.82:5001'));
+app.use('/auth', proxy('http://3.90.109.82:5002'));
 
 // Protected & Role-routed microservices
 app.use(
   '/admin',
   authenticateToken,
   authorizeRoles('admin'),
-  proxy('http://localhost:5003')
+  proxy('http://98.81.59.234:5003')
 );
 
 app.use(
   '/user',
   authenticateToken,
   authorizeRoles('user', 'admin'),
-  proxy('http://localhost:5004')
+  proxy('http://100.31.153.116:5004')
 );
 
 const PORT = process.env.PORT || 5000;
