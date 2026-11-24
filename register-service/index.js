@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
 const connectDB = require('./db');
-const User = require('./models/user');
+const User = require('./models/User');
 
 const app = express();
 app.use(express.json());
